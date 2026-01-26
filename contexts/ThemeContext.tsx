@@ -13,7 +13,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Initialize theme from localStorage after mount
+  // initialize theme from localStorage after mount
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme');
@@ -28,7 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Update DOM and localStorage when theme changes
+  // update DOM and localStorage when theme changes
   useEffect(() => {
     if (!mounted) return;
 

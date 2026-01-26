@@ -1,27 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Code, ExternalLink, Github, X, Sparkles, Star, ChevronRight, Calendar, Users } from 'lucide-react';
-
-interface Project {
-  title: string;
-  description: string;
-  fullDescription: string;
-  tech: string[];
-  features: string[];
-  duration: string;
-  team: string;
-  status: string;
-  github?: string;
-  demo?: string;
-}
-
-// Project Detail Modal Component
-interface ProjectModalProps {
-  project: Project | null;
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { projects, ProjectModalProps, Project } from '@/data/projects';
 
 function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   useEffect(() => {
@@ -158,88 +139,9 @@ function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 // Projects Component
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const projects: Project[] = [
-    {
-      title: "Modern Portfolio Website",
-      description: "A responsive CV and portfolio website built with Next.js, React, Tailwind CSS, and Shadcn UI. Features dark mode, smooth animations, and modern design.",
-      fullDescription: "A fully responsive portfolio website showcasing modern web development practices. Built with Next.js 14 for optimal performance, featuring server-side rendering, image optimization, and seamless navigation. The design system uses Tailwind CSS for utility-first styling and Shadcn UI for accessible components.",
-      tech: ["Next.js", "React", "Tailwind CSS", "Shadcn UI"],
-      features: [
-        "Fully responsive design across all devices",
-        "Dark mode with smooth transitions",
-        "Optimized performance with Next.js 14",
-        "SEO-friendly with meta tags and sitemap",
-        "Accessible UI components from Shadcn",
-        "Smooth scroll animations and transitions"
-      ],
-      duration: "2 weeks",
-      team: "Solo",
-      status: "Completed",
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
-    {
-      title: "Algorithm Visualizer",
-      description: "Interactive web application for visualizing sorting and pathfinding algorithms. Built to help students understand algorithm concepts better.",
-      fullDescription: "An educational web application that brings computer science algorithms to life through interactive visualizations. Users can step through sorting algorithms like Quick Sort, Merge Sort, and Bubble Sort, as well as pathfinding algorithms like A* and Dijkstra's. Built with React and Canvas API for smooth animations.",
-      tech: ["React", "TypeScript", "Canvas API", "Tailwind"],
-      features: [
-        "Visualize 8+ sorting algorithms",
-        "Interactive step-by-step execution",
-        "Adjustable animation speed",
-        "Code explanation for each algorithm",
-        "Pathfinding visualization with obstacles",
-        "Performance comparison metrics"
-      ],
-      duration: "1 month",
-      team: "Solo",
-      status: "Completed",
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
-    {
-      title: "Task Management App",
-      description: "Full-stack task management application with user authentication, real-time updates, and team collaboration features.",
-      fullDescription: "A comprehensive task management solution for teams. Features include real-time collaboration, project boards with drag-and-drop, task assignments, deadlines, and progress tracking. Built with Next.js for the frontend, PostgreSQL for data persistence, and NextAuth for secure authentication.",
-      tech: ["Next.js", "PostgreSQL", "Prisma", "NextAuth"],
-      features: [
-        "User authentication with multiple providers",
-        "Real-time task updates with WebSockets",
-        "Drag-and-drop Kanban boards",
-        "Team collaboration and assignments",
-        "File attachments and comments",
-        "Email notifications for deadlines"
-      ],
-      duration: "2 months",
-      team: "3 people",
-      status: "In Progress",
-      github: "https://github.com"
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Modern e-commerce platform with shopping cart, payment integration, and admin dashboard for managing products and orders.",
-      fullDescription: "A full-featured e-commerce platform with customer-facing store and admin dashboard. Integrated with Stripe for payments, features product search, filtering, reviews, and order tracking. Admin panel allows inventory management, order processing, and sales analytics.",
-      tech: ["Next.js", "MongoDB", "Stripe", "Redis"],
-      features: [
-        "Product catalog with search and filters",
-        "Shopping cart with persistent storage",
-        "Secure payment with Stripe integration",
-        "Order tracking and history",
-        "Admin dashboard for management",
-        "Real-time inventory updates"
-      ],
-      duration: "3 months",
-      team: "2 people",
-      status: "Completed",
-      github: "https://github.com",
-      demo: "https://example.com"
-    }
-  ];
-
   return (
     <>
-      <section id="projects" className="py-24 px-6 bg-slate-50 dark:bg-slate-800">
+      <section id="projects" className="py-24 px-6 bg-transparent">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -252,35 +154,42 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {projects.map((project, idx) => (
-              <div key={idx} className="group p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg">
-                    <Code className="w-5 h-5" />
-                  </div>
-                  <button 
-                    onClick={() => setSelectedProject(project)}
-                    className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-                  </button>
+              <div 
+              key={idx} 
+              className="
+                group p-6 rounded-xl 
+                bg-white dark:bg-slate-900 
+                border border-slate-200 dark:border-slate-700 
+              "
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg">
+                  <Code className="w-5 h-5" />
                 </div>
-                
-                <h3 className="font-bold text-xl mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-xs font-medium text-slate-600 dark:text-slate-400">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <button 
+                  onClick={() => setSelectedProject(project)}
+                  className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                </button>
               </div>
+              
+              <h3 className="font-bold text-xl mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {project.title}
+              </h3>
+              
+              <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span key={tech} className="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-xs font-medium text-slate-600 dark:text-slate-400 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
             ))}
           </div>
         </div>

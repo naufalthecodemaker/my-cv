@@ -27,25 +27,28 @@ export default function Navbar() {
 
   const menuItems = ['About', 'Skills', 'Education', 'Experience', 'Projects', 'Contact'];
 
+  const iconBaseClass = "w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out transform";
+
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg border-b border-slate-200 dark:border-slate-800' 
         : 'bg-transparent'
     }`}>
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+        
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 z-50"> 
           <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
-            L
+            NR
           </div>
           <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Luwi
+            Naufal's CV
           </span>
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-sm font-medium">
           {menuItems.map((item) => (
             <button
               key={item}
@@ -69,17 +72,26 @@ export default function Navbar() {
           
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="lg:hidden p-2 relative h-9 w-9 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 overflow-hidden"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <Menu className={`${iconBaseClass} ${
+              isMobileMenuOpen 
+                ? 'rotate-90 opacity-0 scale-75'  
+                : 'rotate-0 opacity-100 scale-100' 
+            }`} />
+
+            <X className={`${iconBaseClass} ${
+              isMobileMenuOpen 
+                ? 'rotate-0 opacity-100 scale-100' 
+                : '-rotate-90 opacity-0 scale-75'   
+            }`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
           <nav className="flex flex-col p-4 gap-2">
             {menuItems.map((item) => (
               <button

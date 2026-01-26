@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Luwi | Software Engineer Portfolio',
+  title: "Naufal's CV | Software Engineer Portfolio",
   description: 'Personal CV & Portfolio Website - Computer Engineering Student at Universitas Indonesia',
   keywords: ['portfolio', 'software engineer', 'web developer', 'next.js', 'react'],
-  authors: [{ name: 'Luwi' }],
+  authors: [{ name: 'Naufal' }],
   openGraph: {
-    title: 'Luwi | Software Engineer Portfolio',
+    title: 'Naufal | Software Engineer Portfolio',
     description: 'Personal CV & Portfolio Website',
     type: 'website',
   },

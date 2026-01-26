@@ -7,12 +7,15 @@ import Education from '@/components/Education';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import Background from '@/components/Background'; 
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export default function Home() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+      <Background />
+
+      <div className="min-h-screen text-slate-900 dark:text-slate-100 relative">
         <style jsx global>{`
           @keyframes fade-in {
             from { opacity: 0; transform: translateY(20px); }

@@ -1,7 +1,9 @@
 'use client';
 
 import { Download, Github, Linkedin, Mail, Sparkles, ChevronRight } from 'lucide-react';
+import { FaWhatsapp, FaInstagram } from "react-icons/fa"; 
 import { profile } from "@/data/profile";
+import Image from "next/image";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -12,7 +14,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center px-6 pt-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+    <section id="about" className="min-h-screen flex items-center justify-center px-6 pt-16 bg-transparent">
       <div className="mx-auto max-w-6xl w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
@@ -21,7 +23,7 @@ export default function Hero() {
               Available for opportunities
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {profile.name}
@@ -29,7 +31,7 @@ export default function Hero() {
             </h1>
 
             <div className="space-y-2">
-              <p className="text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300">
+              <p className="text-1xl md:text-2xl font-semibold text-slate-700 dark:text-slate-300">
                 {profile.role}
               </p>
               <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -54,12 +56,14 @@ export default function Hero() {
               </button>
             </div>
 
+            {/* SOCIAL LINKS */}
             <div className="flex gap-4 pt-4">
               <a
                 href={profile.social.github}
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-black dark:hover:text-white transition-all hover:-translate-y-1"
+                title="GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -68,27 +72,61 @@ export default function Hero() {
                 href={profile.social.linkedin}
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-[#0077b5] transition-all hover:-translate-y-1"
+                title="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
 
-              {/* Tombol Email */}
               <a
-                href={profile.social.email}
-                // Tidak perlu target="_blank" untuk email, karena biasanya dia membuka popup aplikasi mail
-                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                href={`mailto:${profile.social.email}`}
+                className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-red-500 transition-all hover:-translate-y-1"
+                title="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
+
+              {profile.social.whatsapp && (
+                <a
+                  href={`https://wa.me/${profile.social.whatsapp}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-[#25D366] transition-all hover:-translate-y-1"
+                  title="WhatsApp"
+                >
+                  <FaWhatsapp className="w-5 h-5" />
+                </a>
+              )}
+
+              {profile.social.instagram && (
+                <a
+                  href={`https://instagram.com/${profile.social.instagram}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-[#E1306C] transition-all hover:-translate-y-1"
+                  title="Instagram"
+                >
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+              )}
             </div>
           </div>
 
-          <div className="relative hidden md:block">
-            <div className="w-full aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl rotate-6 animate-float"></div>
+          <div className="relative block max-w-sm mx-auto w-full mt-10 md:mt-0">
+            <div className="w-full aspect-square bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl rotate-6 animate-float" />
+
             <div className="absolute inset-0 w-full aspect-square bg-white dark:bg-slate-800 rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden">
-              <div className="text-9xl font-bold text-slate-100 dark:text-slate-700">LW</div>
+              <div className="relative w-full h-full"> 
+                <Image
+                  src={profile.photoUrl}
+                  alt={`Foto ${profile.name}`}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
+
           </div>
         </div>
       </div>

@@ -39,7 +39,6 @@
   transition-duration: 200ms;
 }
 
-/* Remove transition for specific elements */
 .no-transition,
 .no-transition * {
   transition: none !important;
@@ -61,4 +60,81 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-slate-400 dark:bg-slate-600;
+}
+
+/* ANIMASI BACKGROUND */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* ANIMASI KOMET */
+@keyframes shooting-star {
+  0% {
+    transform: rotate(45deg) translateX(0); 
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateX(1000px); 
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(255, 255, 255, 1);
+  animation: shooting-star 3s linear infinite;
+  opacity: 0;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1px; 
+  width: 300px;
+  height: 2px;  
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
+}
+
+.bg-grid-slate-200 {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+}
+
+.dark .bg-grid-slate-900\/50 {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.5) 1px, transparent 1px);
+}
+
+/* ANIMASI LIGHT MODE */
+@keyframes blob-pulse {
+  0%, 100% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  33% {
+    transform: scale(1.1) translate(30px, -50px);
+  }
+  66% {
+    transform: scale(0.9) translate(-20px, 20px);
+  }
+}
+
+.animate-blob-pulse {
+  animation: blob-pulse 5s infinite ease-in-out;
 }
