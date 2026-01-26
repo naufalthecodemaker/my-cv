@@ -54,7 +54,7 @@ export const projects: Project[] = [
       team: "Solo",
       status: "Completed",
       github: "https://github.com/naufalthecodemaker/my-cv", 
-      demo: "https://naufal-portfolio.vercel.app" 
+      demo: "https://naufal-cv.vercel.app/" 
     },
     
   ];
