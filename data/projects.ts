@@ -19,6 +19,28 @@ export interface ProjectModalProps {
 
 export const projects: Project[] = [
     {
+      title: "Tweeter App",
+      description: "A high-performance full-stack social media platform with a futuristic Crystal Glass UI and real-time interactions.",
+      fullDescription: "Tweeter is a sophisticated social space built with Next.js 15 and Neon PostgreSQL, featuring a galaxy-themed 'Crystal Glass' interface. The project showcases advanced full-stack capabilities, including JWT-based authentication, server actions for dynamic content management, and a custom-built instant loading system. I implemented complex 'Optimistic UI' updates for likes and comments, while optimizing rendering performance for mobile devices through responsive glassmorphism effects and intelligent particle reduction techniques.",
+      tech: ["Next.js 15", "TypeScript", "Tailwind CSS", "Neon DB", "Drizzle ORM", "Lucide React"],
+      features: [
+        "Dynamic Content Text Posting with Real-time Feed Updates",
+        "Engaging Interaction System: (Like & Unlike) and (Follow & Unfollow) functionality",
+        "Threaded Commenting System with Instant Delete Action", 
+        "Full-stack Authentication (JWT & Server Actions)",
+        "Optimized Crystal Glass UI with Responsive Blurring",
+        "Real-time Optimistic UI for Likes & Comments",
+        "Serverless PostgreSQL Integration with Drizzle ORM",
+        "Custom Instant Page Transition & Loading System",
+        "Mobile-first Performance Tuning & GPU Optimization"
+      ],
+      duration: "3.5 days", 
+      team: "Solo",
+      status: "Completed", 
+      github: "https://github.com/naufalthecodemaker/tweeter-app.git", 
+      demo: "https://naufal-tweeter.vercel.app/" 
+    },
+    {
       title: "iBuiltThis App",
       description: "A community platform for developers to showcase projects with a dynamic voting and trending system.",
       fullDescription: "Designed and built a full-stack platform allowing users to share and discover creative web projects via URLs. The system implements a real-time voting mechanism where projects exceeding a specific threshold (100+ votes) are automatically promoted to the 'Trending' section to maximize visibility. Focused on community engagement and seamless content discovery.",
@@ -56,5 +78,4 @@ export const projects: Project[] = [
       github: "https://github.com/naufalthecodemaker/my-cv", 
       demo: "https://naufal-cv.vercel.app/" 
     },
-    
   ];
