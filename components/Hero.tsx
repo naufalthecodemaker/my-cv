@@ -50,10 +50,16 @@ export default function Hero() {
               >
                 View Projects <ChevronRight className="w-4 h-4" />
               </button>
-              <button className="px-6 py-3 border-2 border-slate-300 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
-                <Download className="w-4 h-4" />
-                Download CV
-              </button>
+              <a 
+                href="/CV_ATS_NAUFAL RAHMAN.pdf" 
+                download="CV_ATS_NAUFAL RAHMAN.pdf" 
+                className="inline-block" 
+              >
+                <button className="px-6 py-3 border-2 border-slate-300 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
+                  <Download className="w-4 h-4" />
+                  Download CV
+                </button>
+              </a>
             </div>
 
             {/* SOCIAL LINKS */}
