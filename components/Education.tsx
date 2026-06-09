@@ -7,17 +7,17 @@ export default function Education() {
     {
       id: 1,
       school: "Universitas Indonesia",
-      degree: "Bachelor of Computer Engineering",
-      year: "2024 - Present",
-      description: "Studying Software Engineering and System Architecture. Deepening knowledge in Data Structures, Algorithms, and Object-Oriented Programming (OOP). Actively sharpening problem-solving skills through programming exercise and hands-on full-stack development projects while maintaining a strong academic focus.",
+      degree: "Computer Engineering",
+      year: "Aug 2024 - Present",
+      description: "Maintained a high cumulative GPA of 3.85 / 4.00, demonstrating strong academic excellence and dedication. Completed rigorous coursework with strong foundations in Algorithm Programming, Object-Oriented Programming (OOP), Data Structures, and Database Systems, alongside hands-on academic laboratory experience in Computer Networks, Embedded Systems, and Operating Systems",
       icon: <GraduationCap className="w-6 h-6 transition-transform duration-500 group-hover:rotate-12" />,
     },
     {
       id: 2,
       school: "SMA Negeri 37 Jakarta", 
       degree: "Mathematics & Science (MIPA)",
-      year: "2021 - 2024",
-      description: "Majored in Natural Sciences (IPA). Focused on building a strong foundation in mathematics, logic, and analytical thinking skills necessary for engineering studies.", 
+      year: "Jul 2021 - Jun 2024",
+      description: "Graduated with a strong academic focus on Mathematics and Physics, laying a solid foundation for logical and analytical problem-solving.", 
       icon: <School className="w-6 h-6 transition-transform duration-500 group-hover:rotate-12" />,
     },
   ];

@@ -18,6 +18,8 @@ import {
   SiVercel,        
   SiClerk,         
   SiFigma,
+  SiNeo4J,
+  SiSupabase,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { Box } from "lucide-react"; 
@@ -25,32 +27,29 @@ import { Box } from "lucide-react";
 const getIcon = (name: string) => {
   const n = name.toLowerCase();
 
-  // --- Frontend ---
   if (n.includes('react')) return <SiReact className="w-8 h-8 text-[#61DAFB]" />;
   if (n.includes('next')) return <SiNextdotjs className="w-8 h-8 text-black dark:text-white" />;
   if (n.includes('typescript')) return <SiTypescript className="w-8 h-8 text-[#3178C6]" />;
   if (n.includes('javascript')) return <SiJavascript className="w-8 h-8 text-[#F7DF1E]" />;
   if (n.includes('tailwind')) return <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" />;
 
-  // --- Backend ---
   if (n.includes('node')) return <SiNodedotjs className="w-8 h-8 text-[#339933]" />;
   if (n.includes('python')) return <SiPython className="w-8 h-8 text-[#3776AB]" />;
   if (n.includes('java')) return <FaJava className="w-8 h-8 text-[#007396]" />;
   if (n.includes('c++')) return <SiCplusplus className="w-8 h-8 text-[#00599C]" />;
   if (n === 'c') return <SiC className="w-8 h-8 text-[#A8B9CC]" />; 
   
-  // --- Database ---
   if (n.includes('neon')) return <SiPostgresql className="w-8 h-8 text-[#00E599]" />; 
   if (n.includes('postgres')) return <SiPostgresql className="w-8 h-8 text-[#4169E1]" />;
   if (n.includes('mongo')) return <SiMongodb className="w-8 h-8 text-[#47A248]" />;
+  if (n.includes('supabase')) return <SiSupabase className="w-8 h-8 text-[#3ECF8E]" />;
+  if (n.includes('neo4j')) return <SiNeo4J className="w-8 h-8 text-[#008CC1]" />;
 
-  // --- Tools ---
   if (n.includes('git')) return <SiGit className="w-8 h-8 text-[#F05032]" />;
   if (n.includes('vercel')) return <SiVercel className="w-8 h-8 text-black dark:text-white" />;
   if (n.includes('clerk')) return <SiClerk className="w-8 h-8 text-[#6C47FF]" />;
   if (n.includes('figma')) return <SiFigma className="w-8 h-8 text-[#F24E1E]" />;
 
-  // Default Fallback
   return <Box className="w-8 h-8 text-slate-400" />;
 };
 
@@ -140,7 +139,6 @@ export default function Skills() {
             My technical proficiency and tools I use regularly.
           </p>
 
-          {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (
               <button
@@ -158,7 +156,6 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Grid Card */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredSkills.map((skill, idx) => (
             <div 

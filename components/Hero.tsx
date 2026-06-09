@@ -43,7 +43,7 @@ export default function Hero() {
               {profile.bio}
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+           <div className="flex flex-wrap gap-4 pt-4">
               <button 
                 onClick={() => scrollToSection('projects')}
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2"
@@ -51,18 +51,15 @@ export default function Hero() {
                 View Projects <ChevronRight className="w-4 h-4" />
               </button>
               <a 
-                href="/CV_ATS_NAUFAL RAHMAN.pdf" 
-                download="CV_ATS_NAUFAL RAHMAN.pdf" 
-                className="inline-block" 
+                href="/CV_NaufalRahman.pdf" 
+                download="CV_NaufalRahman.pdf" 
+                className="px-6 py-3 border-2 border-slate-300 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-2" 
               >
-                <button className="px-6 py-3 border-2 border-slate-300 dark:border-slate-700 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
-                  <Download className="w-4 h-4" />
-                  Download CV
-                </button>
+                <Download className="w-4 h-4" />
+                Download CV
               </a>
             </div>
 
-            {/* SOCIAL LINKS */}
             <div className="flex gap-4 pt-4">
               <a
                 href={profile.social.github}

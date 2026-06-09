@@ -14,7 +14,6 @@ export default function Background() {
   return (
     <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none transition-colors duration-500">
       
-      {/* LIGHT MODE BACKGROUND */}
       <div className="absolute inset-0 bg-white dark:opacity-0 transition-opacity duration-500">
         <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(to_bottom,white,transparent)]" />
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob-pulse" />
@@ -22,10 +21,8 @@ export default function Background() {
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob-pulse delay-[4000ms]" />
       </div>
 
-      {/* DARK MODE BACKGROUND */}
       <div className="absolute inset-0 bg-slate-950 opacity-0 dark:opacity-100 transition-opacity duration-500">
         
-        {/* Static Stars */}
         <div className="absolute inset-0">
           {[...Array(200)].map((_, i) => {
              const size = Math.random() * 2 + 1; 
@@ -50,14 +47,12 @@ export default function Background() {
           })}
         </div>
 
-        {/* Shooting Stars */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="shooting-star" style={{ top: '-10%', left: '10%', animationDelay: '0s', animationDuration: '4s' }}></div>
           <div className="shooting-star" style={{ top: '-10%', left: '40%', animationDelay: '2s', animationDuration: '6s' }}></div>
           <div className="shooting-star" style={{ top: '20%', left: '-10%', animationDelay: '5s', animationDuration: '5s' }}></div>
         </div>
 
-        {/* Gradient Overlay */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
       </div>
     </div>
